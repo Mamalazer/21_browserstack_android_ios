@@ -28,31 +28,34 @@ public class Prop {
 
     public interface PropInterface extends Config {
 
-        @Key("browserName")
-        String getBrowserName();
+        @Key("browserstack.user")
+        String getBrowserStackUser();
 
-        @Key("browserVersion")
-        String getBrowserVersion();
+        @Key("browserstack.password")
+        String getBrowserStackPassword();
 
-        @Key("baseUrl")
-        String getBaseUrl();
+        @Key("android.version")
+        String getAndroidversion();
 
-        @Key("browserSize")
-        String getBrowserSize();
+        @Key("android.device")
+        String getAndroidDevice();
 
-        @Key("isRemote")
-        Boolean isRemote();
+        @Key("android.app")
+        String getAndroidApp();
 
-        @Key("remoteUrl")
-        String getRemoteUrl();
+        @Key("build.name")
+        String getBuildName();
 
-        @Key("pageLoadTimeout")
-        Long getPageLoadTimeout();
+        @Key("ios.app")
+        String getIosApp();
 
-        @Key("timeout")
-        Long getTimeout();
+        @Key("ios.device")
+        String getIosDevice();
 
-        @Key("headless")
-        Boolean isHeadless();
+        @Key("ios.version")
+        String getIosversion();
+
+        @Key("mobileplatform")
+        String getMobilePlatform();
     }
 }
