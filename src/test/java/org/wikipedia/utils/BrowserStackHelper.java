@@ -1,6 +1,5 @@
 package org.wikipedia.utils;
 
-import org.junit.jupiter.api.Test;
 import org.wikipedia.models.BrowserStackSessionInfo;
 
 import static io.restassured.RestAssured.given;

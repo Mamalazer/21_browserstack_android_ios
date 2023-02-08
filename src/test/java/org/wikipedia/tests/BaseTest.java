@@ -10,6 +10,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.wikipedia.drivers.BrowserStackAndroidDriver;
 import org.wikipedia.drivers.BrowserStackIosDriver;
+import org.wikipedia.drivers.LocalAndroidDriver;
 import org.wikipedia.models.BrowserStackSessionInfo;
 
 import static com.codeborne.selenide.Selenide.closeWebDriver;
@@ -31,8 +32,10 @@ public class BaseTest {
     void openBrowser() {
         if (PROP.getMobilePlatform().equals("android")) {
             Configuration.browser = BrowserStackAndroidDriver.class.getName();
-        } else {
+        } else if (PROP.getMobilePlatform().equals("ios")){
             Configuration.browser = BrowserStackIosDriver.class.getName();
+        } else {
+            Configuration.browser = LocalAndroidDriver.class.getName();
         }
         SelenideAppium.launchApp();
     }
@@ -43,10 +46,12 @@ public class BaseTest {
         screenshotAs("Last screenshot");
         pageSource();
         closeWebDriver();
-        BrowserStackSessionInfo sessionInfo = getSessionInfo(sessionId);
-        getVideo(sessionInfo);
-        logs(sessionInfo);
-        privateLink(sessionInfo);
-        publicLink(sessionInfo);
+        if (!PROP.getMobilePlatform().equals("local")) {
+            BrowserStackSessionInfo sessionInfo = getSessionInfo(sessionId);
+            getVideo(sessionInfo);
+            logs(sessionInfo);
+            privateLink(sessionInfo);
+            publicLink(sessionInfo);
+        }
     }
 }

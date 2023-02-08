@@ -57,5 +57,23 @@ public class Prop {
 
         @Key("mobileplatform")
         String getMobilePlatform();
+
+        @Key("local.url")
+        String getLocalUrl();
+
+        @Key("android.local.version")
+        String getLocalAndroidVersion();
+
+        @Key("android.local.device")
+        String getLocalAndroidDevice();
+
+        @Key("android.local.app.path")
+        String getLocalAndroidAppPath();
+
+        @Key("android,local.apppackage")
+        String getLocalAndroidAppPackage();
+
+        @Key("android.local.appactivity")
+        String getLocalAndroidAppActivity();
     }
 }
